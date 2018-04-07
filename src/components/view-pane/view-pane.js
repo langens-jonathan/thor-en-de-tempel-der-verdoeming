@@ -11,191 +11,137 @@ const world_height = 4;
 const world = [
     // 0
     {
-        tile: "1",
+        tile: "0_1",
         code: [3, 4],
         blocked: []
     },
     {
-        tile: "3",
+        tile: "0_2",
         code: [2],
         blocked: []
     },
     {
-        tile: "4",
+        tile: "1_1",
         code: [3, 2],
         blocked: ["right"]
     },
     {
-        tile: "2",
+        tile: "2_1",
         code: [],
         blocked: ["left"]
     },
     {
-        tile: "4",
+        tile: "4_1",
         code: [5, 5],
         blocked: []
     },
     {
-        tile: "2",
+        tile: "0_1",
         code: [3, 3, 3],
         blocked: []
     },
     // 6
     {
-        tile: "1",
+        tile: "0_3",
         code: [3, 4, 4],
         blocked: []
     },
     {
-        tile: "1",
-        code: [1, 2, 2, 2, 2],
+        tile: "0_1",
+        code: [1, 2 ],
         blocked: []
     },
     // 8
     {
-        tile: "4",
+        tile: "1_2",
         code: [2, 2],
         blocked: ["right"]
     },
     {
-        tile: "6",
+        tile: "2_2",
         code: [],
         blocked: ["left"]
     },
     // 10
     {
-        tile: "7",
+        tile: "1_2",
         code: [],
         blocked: ["right"]
     },
     {
-        tile: "9",
+        tile: "2_1",
         code: [],
         blocked: ["left"]
     },
     {
-        tile: "2",
+        tile: "0_1",
         code: [3, 4],
         blocked: []
     },
     {
-        tile: "1",
+        tile: "0_3",
         code: [3, 4],
         blocked: []
     },
     // 14
     {
-        tile: "4",
+        tile: "9_1",
         code: [3, 4],
         blocked: ["down"]
     },
     // 15
     {
-        tile: "3",
+        tile: "1_1",
         code: [3, 4],
         blocked: ["right"]
     },
     // 16
     {
-        tile: "3",
+        tile: "8_1",
         code: [3, 4],
         blocked: ["left", "right"]
     },
     // 17
     {
-        tile: "2",
+        tile: "2_2",
         code: [3, 4],
         blocked: ["left"],
         exit: true
     },
+    // 18
     {
-        tile: "6",
+        tile: "0_2",
         code: [3, 4],
         blocked: []
     },
     {
-        tile: "7",
+        tile: "1_1",
         code: [3, 4],
         blocked: ["right"]
     },
     // 20
     {
-        tile: "7",
+        tile: "3_1",
         code: [3, 4],
         blocked: ["left", "up"]
     },
     // 21
     {
-        tile: "8",
+        tile: "1_2",
         code: [3, 4],
         blocked: ["right"]
     },
     // 22
     {
-        tile: "8",
+        tile: "6_1",
         code: [3, 4],
         blocked: ["left"]
     },
     {
-        tile: "8",
+        tile: "0_3",
         code: [3, 4],
         blocked: []
     },
-    // {
-    //     tile: "8",
-    //     code: [3, 4],
-    //     blocked: []
-    // },
-    // {
-    //     tile: "8",
-    //     code: [3, 4],
-    //     blocked: []
-    // },
-    // {
-    //     tile: "8",
-    //     code: [3, 4],
-    //     blocked: []
-    // },
-    // {
-    //     tile: "8",
-    //     code: [3, 4],
-    //     blocked: []
-    // },
-    // {
-    //     tile: "8",
-    //     code: [3, 4],
-    //     blocked: []
-    // },
-    // {
-    //     tile: "8",
-    //     code: [3, 4],
-    //     blocked: []
-    // },
-    // {
-    //     tile: "8",
-    //     code: [3, 4],
-    //     blocked: []
-    // },
-    // {
-    //     tile: "8",
-    //     code: [3, 4],
-    //     blocked: ['left','right']
-    // },
-    // {
-    //     tile: "8",
-    //     code: [3, 4],
-    //     blocked: ['down']
-    // },
-    // {
-    //     tile: "8",
-    //     code: [3, 4],
-    //     blocked: ['down']
-    // },
-    // {
-    //     tile: "8",
-    //     code: [3, 4],
-    //     blocked: ['left', 'up']
-    // },
 ];
 
 const getIndexFromCartesianCoords = function({x, y}) {
@@ -347,10 +293,17 @@ const Tile = function(props) {
                                <Key type={99999} />
                               );
     }
+
+    const payCostAndWalk = function() {
+        if(props.payCost(props.tile.code) === true) {
+            props.walk();
+        }
+    };
+
     return(
             <div className={className}>
             <div className={tileClass}>
-            <div className={keyListClass} onClick={() => props.walk()}>{keys}</div>
+            <div className={keyListClass} onClick={() => payCostAndWalk()}>{keys}</div>
             {props.tile.exit ?
              <h1>EXIT</h1>:
              <h1></h1>
@@ -387,14 +340,15 @@ class ViewPane extends Component {
 
         return (
                 <div className = "view-pane" >
+                <div className="barbarian"></div>
                 <Tile location={"topleft"} tile={local_tiles['topLeft']} walk={() => {}}/>
-                <Tile location={"topmid"} tile={local_tiles['topMid']} walk={() => this.travel('up')} blocked={top_blocked}/>
+                <Tile location={"topmid"} tile={local_tiles['topMid']} walk={() => this.travel('up')} blocked={top_blocked} payCost={this.props.payCost}/>
                 <Tile location={"topright"} tile={local_tiles['topRight']} walk={() => {}}/>
-                <Tile location={"midleft"} tile={local_tiles['left']} walk={() => this.travel('left')} blocked={left_blocked}/>
+                <Tile location={"midleft"} tile={local_tiles['left']} walk={() => this.travel('left')} blocked={left_blocked} payCost={this.props.payCost}/>
                 <Tile location={"center"} tile={local_tiles['center']} walk={() => {}}/>
-                <Tile location={"midright"} tile={local_tiles['right']} walk={() => this.travel('right')} blocked={right_blocked}/>
+                <Tile location={"midright"} tile={local_tiles['right']} walk={() => this.travel('right')} blocked={right_blocked} payCost={this.props.payCost}/>
                 <Tile location={"botleft"} tile={local_tiles['botLeft']} walk={() => {}}/>
-                <Tile location={"botmid"} tile={local_tiles['botMid']} walk={() => this.travel('down')} blocked={bot_blocked}/>
+                <Tile location={"botmid"} tile={local_tiles['botMid']} walk={() => this.travel('down')} blocked={bot_blocked} payCost={this.props.payCost}/>
                 <Tile location={"botright"} tile={local_tiles['botRight']} walk={() => {}}/>
                 </div>
         );
