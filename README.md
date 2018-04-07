@@ -1,6 +1,10 @@
+![Thor](https://raw.githubusercontent.com/langens-jonathan/thor-en-de-tempel-der-verdoeming/master/src/images/header_logo.png?raw=true "Thor")
+![Verdoeming](https://raw.githubusercontent.com/langens-jonathan/thor-en-de-tempel-der-verdoeming/master/src/images/subheader_logo.png?raw=true "De tempel der verdoeming")
+
 # Thor en de tempel der verdoeming
 A quick game built with react.js to check out the framework. No prior react.js knowledge.
 
+![Screen shot](https://raw.githubusercontent.com/langens-jonathan/thor-en-de-tempel-der-verdoeming/master/screenshots/ss1.png?raw=true "The game")
 ## Inspiration
 The inspiration for this game is queen games's escape series
 
@@ -12,6 +16,20 @@ or just
 ```
 yarn start
 ```
+
+## How to play
+![How to play](https://raw.githubusercontent.com/langens-jonathan/thor-en-de-tempel-der-verdoeming/master/screenshots/ss2.png?raw=true "How to play")
++ A:
++ B:
++ C:
++ D:
++ E:
++ F:
++ G:
++ H:
++ I:
+
+![Alt text](relative/path/to/img.jpg?raw=true "Title")
 
 ## Available Scripts
 
