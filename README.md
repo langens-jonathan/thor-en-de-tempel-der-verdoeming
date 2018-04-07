@@ -1,7 +1,5 @@
 ![Thor](https://raw.githubusercontent.com/langens-jonathan/thor-en-de-tempel-der-verdoeming/master/src/images/header_logo.png?raw=true "Thor")
 ![Verdoeming](https://raw.githubusercontent.com/langens-jonathan/thor-en-de-tempel-der-verdoeming/master/src/images/subheader_logo.png?raw=true "De tempel der verdoeming")
-
-# Thor en de tempel der verdoeming
 A quick game built with react.js to check out the framework. No prior react.js knowledge.
 
 ![Screen shot](https://raw.githubusercontent.com/langens-jonathan/thor-en-de-tempel-der-verdoeming/master/screenshots/ss1.png?raw=true "The game")
@@ -23,13 +21,16 @@ yarn start
 + B: Go to this tile, if this icon is there than the move is free
 + C: The hero
 + D: Your current score
-+ E: Reserved symbols
++ E: Reserved symbols, to reserve see bullet 'G'
 + F: Most thumbs down will come up grey, that means they are locked. To unlock a locked symbol you must reserve a 'thumbs up' for each 2 'thumbs down' symbols. A 'thumbs up' will only unlock pairs of 'thumb down's.
 + G: Your free symbol tray. Click on a symbol to reserve it.
 + H: Refreshes the free symbol tray.
 + I: The time left before the temple collapses.
 
 ![Alt text](relative/path/to/img.jpg?raw=true "Title")
+
+## Tilesets
+The screenshots are taken with a commercial tileset.
 
 ## Available Scripts
 
