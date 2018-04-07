@@ -19,15 +19,15 @@ yarn start
 
 ## How to play
 ![How to play](https://raw.githubusercontent.com/langens-jonathan/thor-en-de-tempel-der-verdoeming/master/screenshots/ss2.png?raw=true "How to play")
-+ A:
-+ B:
-+ C:
-+ D:
-+ E:
-+ F:
-+ G:
-+ H:
-+ I:
++ A: Go to this tile, if there are icons (other than the 2 squares) you must be able to pay this cost. To pay it you must have reserved the cost (see bullet 'E')
++ B: Go to this tile, if this icon is there than the move is free
++ C: The hero
++ D: Your current score
++ E: Reserved symbols
++ F: Most thumbs down will come up grey, that means they are locked. To unlock a locked symbol you must reserve a 'thumbs up' for each 2 'thumbs down' symbols. A 'thumbs up' will only unlock pairs of 'thumb down's.
++ G: Your free symbol tray. Click on a symbol to reserve it.
++ H: Refreshes the free symbol tray.
++ I: The time left before the temple collapses.
 
 ![Alt text](relative/path/to/img.jpg?raw=true "Title")
 
